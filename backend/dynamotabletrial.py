@@ -2,9 +2,9 @@
 import boto3
 import os
 
-os.environ['AWS_DEFAULT_REGION'] = 'us-east-1'
-os.environ['AWS_ACCESS_KEY_ID'] = 'ASIA23U5KVIYHD24DGWK'
-os.environ['AWS_SECRET_ACCESS_KEY'] = '+noCVI5Vzm1DwuMeK+619MfsrpxvfadTcQw4uXSt'
+#os.environ['AWS_DEFAULT_REGION'] = ''
+#os.environ['AWS_ACCESS_KEY_ID'] = ''
+#os.environ['AWS_SECRET_ACCESS_KEY'] = ''
 
 # Generating a resources from the default session
 dynamodb = boto3.resource('dynamodb')
@@ -65,4 +65,64 @@ def insert_data():
         )
     return response
 
-insert_data()
+def get_data():
+    """
+    This function reads data from dynamodb table
+    Returns
+    -------
+    
+        Response Dictionary
+    """
+    table = dynamodb.Table('mytable')
+    #with Get_item function we get the data
+    response = table.get_item(
+        Item = {
+               'username': 'aastha@gmail.com',
+               'password':'password'
+               }
+        )
+    return response['Item']
+
+
+def delete_data():
+    """
+    This function delete data from dynamodb table
+    Returns
+    -------
+    
+        Response Dictionary
+    """
+    table = dynamodb.Table('mytable')
+    #with delete_item function we delete the data from table
+    response = table.delete_item(
+        Item = {
+               'username': 'aastha@gmail.com',
+               'password':'password'
+               }
+        )
+    return response['Item']
+
+def update_data():
+    """
+    This function delete data from dynamodb table
+    Returns
+    -------
+    
+        Response Dictionary
+    """
+    table = dynamodb.Table('mytable')
+    #with delete_item function we delete the data from table
+    response = table.update_item(
+                Key={
+                    'username':'aastha@gmail.com',
+                    'password': 'password'
+                    },
+                UpdateExpression='SET fname = :values',
+                ExpressionAttributeValues={
+                    ':values': 'Aastha Gupta'
+                }
+           )
+    return response['Item']
+
+
+#insert_data()
