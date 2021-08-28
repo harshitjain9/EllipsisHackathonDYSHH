@@ -1,8 +1,8 @@
 from django.db import models
 
 # Create your models here.
-class Todo(models.Model):
-    title = models.CharField(max_length = 100)
+class User(models.Model):
+    UserName = models.CharField(max_length = 100)
     body = models.CharField(max_length = 100)
     is_completed = models.BooleanField(default=False)
     date_created = models.DateField(auto_created=True)
