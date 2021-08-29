@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import "./Register.css";
+import Header from "../Header/HeaderLogout";
 
 export default function Register() {
     const [username, setUsername] = useState("");
@@ -18,6 +19,8 @@ export default function Register() {
     }
 
     return (
+        <>
+        <Header/>
         <div className="Register">
         <h1 className="d-flex justify-content-center mt-4">Welcome to the future</h1>
             <Form onSubmit={handleSubmit}>
@@ -80,5 +83,6 @@ export default function Register() {
 
             </Form>
         </div>
+        </>
     );
 }

@@ -19,10 +19,6 @@ import {
       href: "/home",
     },
     {
-      label: "About Us",
-      href: "/aboutus",
-    },
-    {
       label: "Login",
       href: "/login",
     },
@@ -153,7 +149,7 @@ import {
   
     const DYSHHLogo = (
       <Typography variant="h6" component="h1" className={logo}>
-        DYSHH
+        MoneyMate
       </Typography>
     );
   

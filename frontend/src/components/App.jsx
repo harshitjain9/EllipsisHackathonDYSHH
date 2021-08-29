@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Header from "./Header/Header";
 import Login from "./Login/Login";
 import Register from "./Register/Register";
 import StartTradeBorrower from "./StartTradeBorrower/StartTradeBorrower";
@@ -9,13 +8,15 @@ import MyTradesBorrower from "./MyTradesBorrower/MyTradesBorrower";
 import MyTradesLender from "./MyTradesLender/MyTradesLender";
 import MyProfileBorrower from "./MyProfileBorrower/MyProfileBorrower";
 import MyProfileLender from "./MyProfileLender/MyProfileLender";
+import Home from "./Home/Home";
 
 
 function App() {
     return (
         <Router>
-            <Header />
             <Switch>
+                <Route path='/' exact component = {Home} />
+                <Route path='/home' exact component = {Home} />
                 <Route path='/login' exact component={Login} />
                 <Route path='/register' exact component={Register} />
                 <Route path='/start-trade-borrower' exact component={StartTradeBorrower} />
