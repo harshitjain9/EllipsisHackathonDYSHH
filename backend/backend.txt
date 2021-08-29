@@ -1,1 +1,0 @@
-contains files for the Django REST backend
