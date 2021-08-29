@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input, CustomInput } from 'reactstrap';
-import "./StartTrade.css";
+import "./StartTradeBorrower.css";
 
-export default function StartTrade() {
+export default function StartTradeBorrower() {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
@@ -38,12 +38,7 @@ export default function StartTrade() {
                 </FormGroup>
 
                 <FormGroup className="mt-4">
-                    <Label for="payback">Desired Interest Rate</Label>
-                    <Input type="date" name="payback" id="payback" placeholder="" />
-                </FormGroup>
-
-                <FormGroup className="mt-4">
-                    <Label for="interestRate">Interest Rate</Label>
+                    <Label for="interestRate">Desired Interest Rate</Label>
                     <CustomInput type="range" id="interestRate" name="interestRate" min="2" max="8" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} />
                     <span>{interestRate}</span>
                     <p>*On your payback date, you will have to pay $xx.yy</p>
