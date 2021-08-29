@@ -15,8 +15,8 @@ function App() {
     return (
         <Router>
             <Switch>
-                <Route path='/' exact component = {Home} />
-                <Route path='/home' exact component = {Home} />
+                <Route path='/' exact component={Login} />
+                <Route path='/home' exact component={Login} />
                 <Route path='/login' exact component={Login} />
                 <Route path='/register' exact component={Register} />
                 <Route path='/start-trade-borrower' exact component={StartTradeBorrower} />

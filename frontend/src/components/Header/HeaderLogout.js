@@ -15,10 +15,6 @@ import {
   
   const headersData = [
     {
-      label: "Home",
-      href: "/home",
-    },
-    {
       label: "Login",
       href: "/login",
     },

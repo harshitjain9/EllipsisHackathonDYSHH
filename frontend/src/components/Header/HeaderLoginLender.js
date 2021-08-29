@@ -14,10 +14,7 @@ import {
   import { Link as RouterLink } from "react-router-dom";
   
   const headersData = [
-    {
-      label: "Home",
-      href: "/home",
-    },
+
     {
       label: "Start a trade",
       href: "/start-trade-lender",
