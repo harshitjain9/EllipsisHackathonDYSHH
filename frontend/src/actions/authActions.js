@@ -18,6 +18,11 @@ import { returnErrors, clearErrors } from "./errorActions";
 
 export const login = (email, password) => (dispatch) => {
     // Headers
+    dispatch(clearErrors());
+    dispatch({
+        type: LOGIN_SUCCESS
+    });
+
     const config = {
         headers: {
             'Content-Type': 'application/json'
@@ -25,23 +30,23 @@ export const login = (email, password) => (dispatch) => {
     };
 
     // Request body
-    const body = JSON.stringify({ email, password });
-    axios.post("http://localhost:8080/accounts/authenticate", body, config)
-        .then(response => {
-            dispatch(clearErrors());
-            return dispatch({
-                type: LOGIN_SUCCESS,
-                payload: response.data
-            })
-        })
-        .catch(err => {
-            dispatch(
-                returnErrors(err.response.data.message, err.response.status, 'LOGIN_FAIL')
-            );
-            dispatch({
-                type: LOGIN_FAIL
-            });
-        });
+    // const body = JSON.stringify({ email, password });
+    // axios.post("http://localhost:8080/accounts/authenticate", body, config)
+    //     .then(response => {
+    //         dispatch(clearErrors());
+    //         return dispatch({
+    //             type: LOGIN_SUCCESS,
+    //             payload: response.data
+    //         })
+    //     })
+    //     .catch(err => {
+    //         dispatch(
+    //             returnErrors(err.response.data.message, err.response.status, 'LOGIN_FAIL')
+    //         );
+    //         dispatch({
+    //             type: LOGIN_FAIL
+    //         });
+    //     });
 }
 
 export const forgotPassword = (email, password, dateOfBirth) => (dispatch, getState) => {

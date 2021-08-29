@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import "./Login.css";
+import { useHistory } from 'react-router-dom';
+import Header from "../Header/HeaderLogout";
+
 
 export default function Login() {
+    const history = useHistory();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -12,9 +16,16 @@ export default function Login() {
 
     function handleSubmit(event) {
         event.preventDefault();
+        if (email == "borrower@email.com") {
+            history.push("/start-trade-borrower");
+        } else {
+            history.push("/start-trade-lender")
+        }
     }
 
     return (
+        <>
+        <Header />
         <div className="Login">
         <h1 className="d-flex justify-content-center mt-4">Welcome to the future</h1>
             <Form onSubmit={handleSubmit}>
@@ -44,5 +55,6 @@ export default function Login() {
                 </div>
             </Form>
         </div>
+        </>
     );
 }
